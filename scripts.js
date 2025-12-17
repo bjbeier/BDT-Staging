@@ -1,235 +1,119 @@
 // ==================== THEME INITIALIZATION ====================
-
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
 const savedTheme = localStorage.getItem('theme');
 
-
-
 if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-
     document.documentElement.classList.add('dark');
-
 }
-
-
 
 // ==================== EMAIL OBFUSCATION UTILITY ====================
-
 // Security Fix: Prevent email scraping by bots
-
 function revealEmail(linkElement) {
-
     const user = linkElement.getAttribute('data-user');
-
     const domain = linkElement.getAttribute('data-domain');
-
     if (user && domain) {
-
         const email = user + '@' + domain;
-
         linkElement.href = 'mailto:' + email;
-
         linkElement.textContent = email;
-
         linkElement.removeAttribute('data-user');
-
         linkElement.removeAttribute('data-domain');
-
     }
-
 }
-
-
 
 // ==================== SAFE DOM CREATION UTILITIES ====================
-
 // Security Fix: Replaced innerHTML with safe DOM methods to prevent XSS
-
 function createElement(tag, attributes = {}, content = '') {
-
     const element = document.createElement(tag);
-
     
-
     for (const [key, value] of Object.entries(attributes)) {
-
         if (key === 'textContent') {
-
             element.textContent = value;
-
         } else if (key === 'innerHTML') {
-
             // Deliberately avoid innerHTML - this should not be used
-
             console.warn('innerHTML usage detected - use textContent or appendChildren instead');
-
         } else {
-
             element.setAttribute(key, value);
-
         }
-
     }
-
     
-
     if (content) {
-
         element.textContent = content;
-
     }
-
     
-
     return element;
-
 }
-
-
 
 function appendChildren(parent, children) {
-
     children.forEach(child => {
-
         if (typeof child === 'string') {
-
             parent.appendChild(document.createTextNode(child));
-
         } else if (child instanceof Node) {
-
             parent.appendChild(child);
-
         }
-
     });
-
 }
-
-
 
 // ==================== SHARED LAYOUT (NAV + FOOTER) ====================
-
 function sectionHref(id) {
-
     // Use in-page anchor if the element exists, otherwise link back to index.html with hash
-
     return document.getElementById(id) ? `#${id}` : `index.html#${id}`;
-
 }
 
-
-
 function renderSharedLayout() {
-
     const header = document.getElementById('site-header');
-
     const footer = document.getElementById('site-footer');
 
-
-
     if (header) {
-
         const servicesHref = sectionHref('services');
-
         const aboutHref = sectionHref('about');
-
         const contactHref = sectionHref('contact');
 
-
-
         // Security Fix: Using safe DOM construction
-
         const nav = createElement('nav');
-
         const navContainer = createElement('div', { class: 'nav-container' });
-
         
-
         // Logo
-
         const logo = createElement('img', {
-
             src: 'images/logo.png',
-
             alt: 'Blue Droid Technologies',
-
             class: 'logo'
-
         });
-
         navContainer.appendChild(logo);
-
         
-
         // Menu toggle button - using HTML entity
-
         const menuToggle = createElement('button', {
-
             class: 'menu-toggle',
-
             'data-menu-toggle': '',
-
             'aria-label': 'Toggle navigation'
-
         });
-
         menuToggle.innerHTML = '&#9776;'; // Hamburger menu icon (safe - no user input)
-
         navContainer.appendChild(menuToggle);
-
         
-
         // Navigation links
-
         const navLinks = createElement('ul', { class: 'nav-links', id: 'navLinks' });
-
         
-
         const navItems = [
-
             { href: 'index.html', text: 'Home' },
-
             { href: servicesHref, text: 'Services' },
-
             { href: 'prices.html', text: 'Pricing' },
-
             { href: aboutHref, text: 'About' },
-
             { href: contactHref, text: 'Contact' }
-
         ];
-
         
-
         navItems.forEach(item => {
-
             const li = createElement('li');
-
             const a = createElement('a', { href: item.href }, item.text);
-
             li.appendChild(a);
-
             navLinks.appendChild(li);
-
         });
-
         
-
         navContainer.appendChild(navLinks);
-
         
-
         // Phone button
-
         const phoneBtn = createElement('a', {
-
             href: 'tel:5132126714',
-
             class: 'phone-btn'
-
         });
-
         
 
         const fullText = createElement('span', { class: 'full' });
