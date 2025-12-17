@@ -108,28 +108,6 @@ function appendChildren(parent, children) {
 
 
 
-// Helper function to safely set HTML content that contains special characters
-
-function setHTMLContent(element, htmlString) {
-
-    // Create a temporary div to parse the HTML
-
-    const temp = document.createElement('div');
-
-    temp.innerHTML = htmlString;
-
-    // Move all child nodes to the target element
-
-    while (temp.firstChild) {
-
-        element.appendChild(temp.firstChild);
-
-    }
-
-}
-
-
-
 // ==================== SHARED LAYOUT (NAV + FOOTER) ====================
 
 function sectionHref(id) {
@@ -160,7 +138,7 @@ function renderSharedLayout() {
 
 
 
-        // Security Fix: Using safe DOM construction with proper Unicode handling
+        // Security Fix: Using safe DOM construction
 
         const nav = createElement('nav');
 
@@ -184,7 +162,7 @@ function renderSharedLayout() {
 
         
 
-        // Menu toggle button with Unicode character
+        // Menu toggle button - using HTML entity
 
         const menuToggle = createElement('button', {
 
@@ -196,7 +174,7 @@ function renderSharedLayout() {
 
         });
 
-        menuToggle.textContent = '?'; // Hamburger menu icon
+        menuToggle.innerHTML = '&#9776;'; // Hamburger menu icon (safe - no user input)
 
         navContainer.appendChild(menuToggle);
 
@@ -256,7 +234,7 @@ function renderSharedLayout() {
 
         const fullText = createElement('span', { class: 'full' });
 
-        fullText.textContent = 'Call or Text � (513) 212-6714';
+        fullText.innerHTML = 'Call or Text &bull; (513) 212-6714'; // Safe - no user input
 
         const shortText = createElement('span', { class: 'short' }, '(513) 212-6714');
 
@@ -278,7 +256,7 @@ function renderSharedLayout() {
 
     if (footer) {
 
-        // Security Fix: Using safe DOM construction with proper Unicode handling
+        // Security Fix: Using safe DOM construction
 
         const footerContent = createElement('div', { class: 'footer-content' });
 
@@ -502,7 +480,7 @@ function renderSharedLayout() {
 
         const copyright = createElement('p');
 
-        copyright.textContent = '� 2025 Blue Droid Technologies, LLC. All rights reserved.';
+        copyright.innerHTML = '&copy; 2025 Blue Droid Technologies, LLC. All rights reserved.'; // Safe - no user input
 
         footerBottom.appendChild(copyright);
 
@@ -830,4 +808,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initEmailReveal(); // Security Fix: Initialize email obfuscation
 
-});s
+});

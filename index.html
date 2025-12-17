@@ -16,7 +16,7 @@
 
     <!-- Security Headers (Meta Tags - Server-side headers recommended) -->
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-CSP_NONCE_PLACEHOLDER' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none';">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -30,17 +30,13 @@
 
     
 
-    <!-- Google tag (gtag.js) - Google Analytics 4 with SRI -->
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-353553686" 
 
-            integrity="sha384-placeholder" 
+            crossorigin="anonymous"></script>
 
-            crossorigin="anonymous"
-
-            nonce="CSP_NONCE_PLACEHOLDER"></script>
-
-    <script nonce="CSP_NONCE_PLACEHOLDER">
+    <script>
 
       window.dataLayer = window.dataLayer || [];
 
@@ -104,7 +100,7 @@
 
             <div class="trust-item">
 
-                <div class="trust-icon">??</div>
+                <div class="trust-icon">&#x1F3E0;</div>
 
                 <h3>Locally Owned &amp; Operated</h3>
 
@@ -114,7 +110,7 @@
 
             <div class="trust-item">
 
-                <div class="trust-icon">?</div>
+                <div class="trust-icon">&#x2B50;</div>
 
                 <h3>20+ Years Experience</h3>
 
@@ -124,7 +120,7 @@
 
             <div class="trust-item">
 
-                <div class="trust-icon">??</div>
+                <div class="trust-icon">&#x1F499;</div>
 
                 <h3>Personal Service</h3>
 
@@ -160,7 +156,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F4BB;</div>
 
                         <h3>PC &amp; Laptop Repair</h3>
 
@@ -170,7 +166,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F4F6;</div>
 
                         <h3>WiFi Setup</h3>
 
@@ -180,7 +176,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F3E1;</div>
 
                         <h3>Smart Home Setup</h3>
 
@@ -190,7 +186,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F4F1;</div>
 
                         <h3>Smartphone &amp; Tablet Help</h3>
 
@@ -200,7 +196,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">???</div>
+                        <div class="service-icon">&#x1F5A5;&#xFE0F;</div>
 
                         <h3>Home Office Setup</h3>
 
@@ -210,7 +206,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x267B;&#xFE0F;</div>
 
                         <h3>Electronics Recycling</h3>
 
@@ -234,7 +230,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F527;</div>
 
                         <h3>IT Support</h3>
 
@@ -244,7 +240,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F310;</div>
 
                         <h3>Network Setup &amp; Management</h3>
 
@@ -254,7 +250,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">???</div>
+                        <div class="service-icon">&#x1F6E1;&#xFE0F;</div>
 
                         <h3>Security Solutions</h3>
 
@@ -264,7 +260,7 @@
 
                     <div class="service-card">
 
-                        <div class="service-icon">??</div>
+                        <div class="service-icon">&#x1F4CA;</div>
 
                         <h3>Device Management</h3>
 
@@ -334,7 +330,7 @@
 
                 <div class="contact-card">
 
-                    <h3>?? Call or Text</h3>
+                    <h3>&#x1F4DE; Call or Text</h3>
 
                     <a href="tel:5132126714">(513) 212-6714</a>
 
@@ -342,7 +338,7 @@
 
                 <div class="contact-card">
 
-                    <h3>?? Email</h3>
+                    <h3>&#x1F4E7; Email</h3>
 
                     <!-- Email obfuscated via JavaScript -->
 
@@ -364,7 +360,7 @@
 
 
 
-    <script src="scripts.js" defer nonce="CSP_NONCE_PLACEHOLDER"></script>
+    <script src="scripts.js" defer></script>
 
 </body>
 
