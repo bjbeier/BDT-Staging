@@ -24,7 +24,7 @@ function revealEmail(linkElement) {
 // Security Fix: Replaced innerHTML with safe DOM methods to prevent XSS
 function createElement(tag, attributes = {}, content = '') {
     const element = document.createElement(tag);
-    
+
     for (const [key, value] of Object.entries(attributes)) {
         if (key === 'textContent') {
             element.textContent = value;
@@ -35,11 +35,11 @@ function createElement(tag, attributes = {}, content = '') {
             element.setAttribute(key, value);
         }
     }
-    
+
     if (content) {
         element.textContent = content;
     }
-    
+
     return element;
 }
 
@@ -71,7 +71,7 @@ function renderSharedLayout() {
         // Security Fix: Using safe DOM construction
         const nav = createElement('nav');
         const navContainer = createElement('div', { class: 'nav-container' });
-        
+
         // Logo
         const logo = createElement('img', {
             src: 'images/logo.png',
@@ -79,7 +79,7 @@ function renderSharedLayout() {
             class: 'logo'
         });
         navContainer.appendChild(logo);
-        
+
         // Menu toggle button - using HTML entity
         const menuToggle = createElement('button', {
             class: 'menu-toggle',
@@ -88,10 +88,10 @@ function renderSharedLayout() {
         });
         menuToggle.innerHTML = '&#9776;'; // Hamburger menu icon (safe - no user input)
         navContainer.appendChild(menuToggle);
-        
+
         // Navigation links
         const navLinks = createElement('ul', { class: 'nav-links', id: 'navLinks' });
-        
+
         const navItems = [
             { href: 'index.html', text: 'Home' },
             { href: servicesHref, text: 'Services' },
@@ -99,22 +99,22 @@ function renderSharedLayout() {
             { href: aboutHref, text: 'About' },
             { href: contactHref, text: 'Contact' }
         ];
-        
+
         navItems.forEach(item => {
             const li = createElement('li');
             const a = createElement('a', { href: item.href }, item.text);
             li.appendChild(a);
             navLinks.appendChild(li);
         });
-        
+
         navContainer.appendChild(navLinks);
-        
+
         // Phone button
         const phoneBtn = createElement('a', {
             href: 'tel:5132126714',
             class: 'phone-btn'
         });
-        
+
 
         const fullText = createElement('span', { class: 'full' });
 
@@ -126,7 +126,7 @@ function renderSharedLayout() {
 
         phoneBtn.appendChild(shortText);
 
-        
+
 
         navContainer.appendChild(phoneBtn);
 
@@ -144,7 +144,7 @@ function renderSharedLayout() {
 
         const footerContent = createElement('div', { class: 'footer-content' });
 
-        
+
 
         // Footer Section 1: Company Info
 
@@ -158,7 +158,7 @@ function renderSharedLayout() {
 
         appendChildren(section1, [h4_1, p1_1, p1_2]);
 
-        
+
 
         // Footer Section 2: Services
 
@@ -168,7 +168,7 @@ function renderSharedLayout() {
 
         const ul2 = createElement('ul');
 
-        
+
 
         const services = [
 
@@ -180,7 +180,7 @@ function renderSharedLayout() {
 
         ];
 
-        
+
 
         services.forEach(service => {
 
@@ -194,13 +194,13 @@ function renderSharedLayout() {
 
         });
 
-        
+
 
         section2.appendChild(h4_2);
 
         section2.appendChild(ul2);
 
-        
+
 
         // Footer Section 3: Quick Links
 
@@ -210,7 +210,7 @@ function renderSharedLayout() {
 
         const ul3 = createElement('ul');
 
-        
+
 
         const quickLinks = [
 
@@ -224,7 +224,7 @@ function renderSharedLayout() {
 
         ];
 
-        
+
 
         quickLinks.forEach(link => {
 
@@ -238,13 +238,13 @@ function renderSharedLayout() {
 
         });
 
-        
+
 
         section3.appendChild(h4_3);
 
         section3.appendChild(ul3);
 
-        
+
 
         // Footer Section 4: Contact (with obfuscated email)
 
@@ -254,7 +254,7 @@ function renderSharedLayout() {
 
         const ul4 = createElement('ul');
 
-        
+
 
         // Phone
 
@@ -264,7 +264,7 @@ function renderSharedLayout() {
 
         li4_1.appendChild(phone);
 
-        
+
 
         // Email (obfuscated)
 
@@ -284,7 +284,7 @@ function renderSharedLayout() {
 
         li4_2.appendChild(emailLink);
 
-        
+
 
         // Facebook
 
@@ -296,11 +296,11 @@ function renderSharedLayout() {
 
             target: '_blank',
 
-            rel: 'noopener'
+            rel: 'noopener noreferrer'
 
         });
 
-        
+
 
         // Facebook SVG icon
 
@@ -316,7 +316,7 @@ function renderSharedLayout() {
 
         svg.style.cssText = 'display:inline-block;vertical-align:middle;margin-right:8px;';
 
-        
+
 
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -324,7 +324,7 @@ function renderSharedLayout() {
 
         svg.appendChild(path);
 
-        
+
 
         fbLink.appendChild(svg);
 
@@ -332,7 +332,7 @@ function renderSharedLayout() {
 
         li4_3.appendChild(fbLink);
 
-        
+
 
         ul4.appendChild(li4_1);
 
@@ -344,7 +344,7 @@ function renderSharedLayout() {
 
         section4.appendChild(ul4);
 
-        
+
 
         // Append all sections to footer content
 
@@ -356,7 +356,7 @@ function renderSharedLayout() {
 
         footerContent.appendChild(section4);
 
-        
+
 
         // Footer bottom with copyright symbol
 
@@ -368,7 +368,7 @@ function renderSharedLayout() {
 
         footerBottom.appendChild(copyright);
 
-        
+
 
         footer.appendChild(footerContent);
 
@@ -630,7 +630,7 @@ function initEmailReveal() {
 
     if (emailLink) {
 
-        emailLink.addEventListener('click', function(e) {
+        emailLink.addEventListener('click', function (e) {
 
             e.preventDefault();
 
@@ -640,7 +640,7 @@ function initEmailReveal() {
 
     }
 
-    
+
 
     // Footer email link
 
@@ -648,7 +648,7 @@ function initEmailReveal() {
 
     if (emailLinkFooter) {
 
-        emailLinkFooter.addEventListener('click', function(e) {
+        emailLinkFooter.addEventListener('click', function (e) {
 
             e.preventDefault();
 
