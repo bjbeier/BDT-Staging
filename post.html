@@ -13,7 +13,8 @@
     <header id="site-header"></header>
 
     <!-- Post Header / Visual Break -->
-    <header class="hero hero-condensed" style="padding: 3rem 2rem;">
+    <section class="hero hero-condensed">
+        <!-- Dark/Light Mode Toggle -->
         <button id="themeSwitch" aria-label="Toggle dark mode" class="hero-toggle">
             <svg id="sunIcon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -27,11 +28,12 @@
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
         </button>
-        <div class="container" style="padding: 0;">
-            <p style="margin-bottom: 0.5rem; opacity: 0.8; color: white;">Blog Insights</p>
-            <h1 style="font-size: 2.5rem; color: white;">Technology Guides</h1>
+        <div class="hero-content">
+            <p style="margin-bottom: 0.5rem; opacity: 0.8; color: white; position: relative; z-index: 10;">Blog Insights
+            </p>
+            <h1 style="color: white; position: relative; z-index: 10;">Technology Guides</h1>
         </div>
-    </header>
+    </section>
 
     <main class="container" style="padding-top: 4rem;">
         <div id="blog-post-container" class="min-h-[400px]">

@@ -35,16 +35,16 @@ async function loadPosts(containerId) {
         const tagsHtml = (post.tags || []).map(t => `#${t}`).join(' ');
         return `
         <article class="service-card">
-            <header class="mb-4">
-                <div class="flex items-center gap-2 text-sm opacity-70 mb-2">
+            <header>
+                <div class="blog-meta">
                     <span>${formatDate(post.date)}</span>
-                    <span>${tagsHtml}</span>
+                    <span class="blog-tags">${tagsHtml}</span>
                 </div>
-                <h3 class="text-xl font-bold">
-                    <a href="post.html?slug=${post.slug}" class="hover:text-primary-blue transition-colors">${post.title}</a>
+                <h3>
+                    <a href="post.html?slug=${post.slug}">${post.title}</a>
                 </h3>
             </header>
-            <p class="text-sm opacity-80 mb-4 line-clamp-3">${post.summary || ''}</p>
+            <p>${post.summary || ''}</p>
             <a href="post.html?slug=${post.slug}" class="read-more">Read Full Article &rarr;</a>
         </article>
         `;
@@ -79,16 +79,16 @@ async function loadSinglePost(containerId) {
     const tagsHtml = (post.tags || []).map(t => `#${t}`).join(' ');
 
     container.innerHTML = `
-        <article class="max-w-3xl mx-auto">
-            <header class="text-center mb-10">
-                <div class="text-sm opacity-60 mb-2">${formatDate(post.date)} | ${tagsHtml}</div>
-                <h1 class="text-4xl font-bold mb-6">${post.title}</h1>
-                ${post.image ? `<img src="${post.image}" alt="${post.title}" class="w-full rounded-xl mb-6">` : ''}
+        <article class="blog-post-content">
+            <header class="blog-post-header">
+                <div class="blog-meta">${formatDate(post.date)} | <span class="blog-tags">${tagsHtml}</span></div>
+                <h1 class="post-title">${post.title}</h1>
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" class="post-featured-image">` : ''}
             </header>
-            <div class="prose max-w-none text-lg">
+            <div class="post-body">
                 ${post.content}
             </div>
-            <div class="mt-12 text-center">
+            <div class="post-footer">
                 <a href="blog.html" class="cta-button">Back to All Posts</a>
             </div>
         </article>

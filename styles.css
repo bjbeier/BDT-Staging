@@ -246,7 +246,12 @@ nav {
 
 .hero>* {
     position: relative;
-    z-index: 3;
+    z-index: 5;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
 }
 
 .hero h1 {
@@ -322,6 +327,17 @@ html:not(.dark) #sunIcon {
 
 html:not(.dark) #moonIcon {
     opacity: 1;
+}
+
+/* Condensed Hero for Blog Posts */
+.hero-condensed {
+    padding: 3.5rem 2rem;
+    min-height: auto;
+}
+
+.hero-condensed h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
 }
 
 /* ==================== CONTAINER ==================== */
@@ -453,6 +469,58 @@ html:not(.dark) #moonIcon {
 
 .read-more:hover {
     text-decoration: underline;
+}
+
+/* Blog Metadata */
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.blog-tags {
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+html.dark .blog-meta {
+    color: #94a3b8;
+}
+
+/* Single Post Content */
+.blog-post-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.post-featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-body {
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.post-body p {
+    margin-bottom: 1.5rem;
+}
+
+.post-footer {
+    margin-top: 4rem;
+    text-align: center;
 }
 
 /* ==================== ABOUT SECTION ==================== */
