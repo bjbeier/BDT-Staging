@@ -282,9 +282,10 @@ nav {
 }
 
 html.dark .hero-toggle.toggle-scrolled {
-    background: rgba(30, 41, 59, 0.8);
-    color: var(--white);
+    background: #FFFFFF;
+    color: var(--primary-blue);
     border-color: #334155;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 html:not(.dark) .hero-toggle.toggle-scrolled #sunIcon {
