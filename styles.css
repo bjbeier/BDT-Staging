@@ -103,14 +103,6 @@ html.dark .trust-item p {
     color: #94a3b8;
 }
 
-html.dark .hero-toggle {
-    color: #e0e7ff;
-    background: rgba(0, 0, 0, 0.25);
-}
-
-html.dark .hero-toggle:hover {
-    background: rgba(0, 0, 0, 0.4);
-}
 
 
 /* ==================== NAVIGATION ==================== */
